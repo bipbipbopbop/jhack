@@ -3,7 +3,7 @@
 
 namespace JHack
 {
-    void    start();
+	void	start();
 }
 
 #endif //JHACK_HPP

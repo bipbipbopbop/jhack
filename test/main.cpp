@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    JHack::start();
+	JHack::start();
 
-    return 0;
+	return 0;
 }
