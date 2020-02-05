@@ -1,7 +1,7 @@
 #ifndef JHACK_HPP
 # define JHACK_HPP
 
-namespace JHack
+namespace jhack
 {
 	void	start();
 }

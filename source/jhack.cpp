@@ -1,6 +1,6 @@
 #include <iostream>
 
-namespace JHack
+namespace jhack
 {
 	void start()
 	{
