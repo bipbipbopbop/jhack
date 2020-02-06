@@ -16,9 +16,6 @@ Here is a list of the current features:
 
 
 ## Compilation
-I use Cygwin64 toolchain in order to compile the library, as defined in the Makefile (using `g++` and `make`).
+Just run the CMakeLists.txt file with the command `cmake`. You may want to build the project in a separate directory, for example `build/`. The `build.sh` script does that for you.
 
-In order to compile the Library, just run the command `make`.
-
-For testing the program with the test source file, run the command `make test` to compile the program,
-then run the resulting program `a.exe`.
+In order to test the program, you first need to enable the tests in the cmake configuration (`cmake -DENABLE_TESTS=ON`, done by the build script). Then you just need to run `ctest` in your build directory.
