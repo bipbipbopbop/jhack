@@ -1,6 +1,9 @@
 ### Configuration ###
 cmake_minimum_required(VERSION 3.0.0)
 
+# Windows Specific requirement for shared library
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
 project(jhack VERSION 0.1.0)
 
 # C++ Compilation specs
@@ -22,8 +25,9 @@ list(TRANSFORM INC PREPEND ${SRC_DIR})
 
 # build target
 target_sources(${PROJECT_NAME} PRIVATE ${SRC} ${INC})
-target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Werror -Wextra -g)
-
+if(CMAKE_CXX_COMPILER_ID EQUAL "MSVC")
+    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Werror -Wextra -g)
+endif()
 # add header path as a dependency of the project
 target_include_directories(${PROJECT_NAME} INTERFACE
                            ${SRC_DIR}
