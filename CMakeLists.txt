@@ -7,18 +7,25 @@ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 project(jhack VERSION 0.1.0)
 
 # C++ Compilation specs
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 ### Main Target ###
 add_library(${PROJECT_NAME} SHARED)
-set(SRC_DIR "source/")
+set(SRC_DIR "${CMAKE_SOURCE_DIR}/source/")
 
 # source files
 set(SRC
     jhack.cpp
+    process/process.cpp
 )
-set(INC)
+set(INC
+    jhack.hpp
+    process/process.hpp
+    utils/tchar.hpp
+    utils/tchar/tstring.hpp
+    utils/tchar/io.hpp
+)
 
 list(TRANSFORM SRC PREPEND ${SRC_DIR})
 list(TRANSFORM INC PREPEND ${SRC_DIR})
@@ -29,7 +36,7 @@ if(CMAKE_CXX_COMPILER_ID EQUAL "MSVC")
     target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Werror -Wextra -g)
 endif()
 # add header path as a dependency of the project
-target_include_directories(${PROJECT_NAME} INTERFACE
+target_include_directories(${PROJECT_NAME} PUBLIC
                            ${SRC_DIR}
 )
 
@@ -38,8 +45,8 @@ target_include_directories(${PROJECT_NAME} INTERFACE
 option(ENABLE_TESTS "Enable tests" OFF)
 if (${ENABLE_TESTS})
     enable_testing()
-    set(TEST_SRC_DIR ${CMAKE_SOURCE_DIR}/tests/source)
-    add_subdirectory(${TEST_SRC_DIR})
+    set(TESTS_DIR ${CMAKE_SOURCE_DIR}/tests)
+    add_subdirectory(${TESTS_DIR})
 endif()
 
 
