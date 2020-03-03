@@ -12,7 +12,7 @@ int		main(void)
 	});
 
 	assert((jhack::getProcessHandleByName(PROCESS_VM_READ, "invalidProcess Name69420") == INVALID_HANDLE_VALUE));
-	assert((jhack::getProcessHandleByName(PROCESS_VM_READ, "[System Process]") != INVALID_HANDLE_VALUE));
+	assert((jhack::getProcessHandleByName(PROCESS_VM_READ, "TestProcess.exe") != INVALID_HANDLE_VALUE));//This process
 
 	return 0;
 }
