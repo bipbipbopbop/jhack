@@ -22,6 +22,7 @@ set(SRC
 set(INC
     jhack.hpp
     process/process.hpp
+    process/pptr.hpp
     utils/tchar.hpp
     utils/tchar/tstring.hpp
     utils/tchar/io.hpp
