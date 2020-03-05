@@ -1,0 +1,11 @@
+// CMake config file for jhack Project unit tests
+// Destination: tests/source/jhackTestsConfig.h
+
+#ifndef JHACK_TESTS_CONFIG_H
+# define JHACK_TESTS_CONFIG_H
+
+#include "tchar.h"
+
+constexpr TCHAR DataPath[] = _T("@TESTS_DATA_DIR@");
+
+#endif// !JHACK_TESTS_CONFIG_H

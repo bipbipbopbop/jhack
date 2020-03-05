@@ -16,3 +16,9 @@ build/
 ## Executables
 *.exe
 *.out
+
+## Generated files (compile-time)
+tests/source/jhackTestsConfig.h
+
+## Generated files (run-time)
+*.log
