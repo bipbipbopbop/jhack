@@ -12,7 +12,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 ### Main Target ###
 add_library(${PROJECT_NAME} SHARED)
-set(SRC_DIR "${CMAKE_SOURCE_DIR}/source/")
+set(SRC_DIR "${PROJECT_SOURCE_DIR}/source/")
+
+# change output directory
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
+)
 
 # source files
 set(SRC
@@ -46,10 +52,6 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 option(ENABLE_TESTS "Enable tests" OFF)
 if (${ENABLE_TESTS})
     enable_testing()
-    set(TESTS_DIR ${CMAKE_SOURCE_DIR}/tests)
+    set(TESTS_DIR ${PROJECT_SOURCE_DIR}/tests)
     add_subdirectory(${TESTS_DIR})
 endif()
-
-
-### Installer ###
-# Maybe one day ?

@@ -12,7 +12,7 @@ set(TESTPROCESS_SRC
 ## add Source files
 target_sources(TestProcess PRIVATE ${TESTPROCESS_SRC})
 target_include_directories(TestProcess PRIVATE
-                           ${CMAKE_SOURCE_DIR}
+                           ${PROJECT_SOURCE_DIR}
                            ${SRC_DIR}
                            ${TESTS_SRC_DIR}
 )
@@ -37,7 +37,7 @@ set(TESTPPTR_SRC
 ## add Source files
 target_sources(TestPptr PRIVATE ${TESTPPTR_SRC})
 target_include_directories(TestPptr PRIVATE
-                           ${CMAKE_SOURCE_DIR}
+                           ${PROJECT_SOURCE_DIR}
                            ${SRC_DIR}
                            ${TESTS_SRC_DIR}
 )

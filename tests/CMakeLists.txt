@@ -6,8 +6,8 @@ set(TESTS_DATA_DIR ${TESTS_DIR}/data)
 
 # Config file
 find_file(__CONFIG_FILE
-    ${CMAKE_PROJECT_NAME}TestsConfig.h.in
-    ${CMAKE_SOURCE_DIR}/cmake
+    ${PROJECT_NAME}TestsConfig.h.in
+    ${PROJECT_SOURCE_DIR}/cmake
 )
 if(EXISTS ${__CONFIG_FILE})
     string(REGEX REPLACE ".*/([^/]*)\\.in" "\\1" TESTS_CONFIG_FILE ${__CONFIG_FILE})

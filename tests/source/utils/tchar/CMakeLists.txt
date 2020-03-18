@@ -14,7 +14,7 @@ list(APPEND TESTTSTRING_SRC
 ## add Source files
 target_sources(TestTstring PRIVATE ${TESTTSTRING_SRC})
 target_include_directories(TestTstring PRIVATE
-                           ${CMAKE_SOURCE_DIR}
+                           ${PROJECT_SOURCE_DIR}
                            ${SRC_DIR}
                            ${TESTS_SRC_DIR}
 )
