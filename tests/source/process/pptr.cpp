@@ -43,8 +43,8 @@ int		main()
 	}
 	Sleep(200);//By testing, I guess the process is not fully created so we need to wait a bit
 
-
-	Pptr	ptr{(LPVOID)0x0014FE50, pi.hProcess};
+	const unsigned int base = 0x14F000;
+	Pptr	ptr{(LPVOID)(base + 0xE50), pi.hProcess};
 	assert(ptr.read<unsigned int>() == 0xDEADBEEF);
 
 
@@ -53,7 +53,7 @@ int		main()
 	assert(ptr.read<unsigned int>() == 0xDEAD0000);
 
 
-	Pptr	ptr2{(LPVOID)0x0014FE60, pi.hProcess};
+	Pptr	ptr2{(LPVOID)(base + 0xE60), pi.hProcess};
 	char	value[5] = "BBBB";
 	assert(ptr2[0][0].read<uint32_t>(4) == *reinterpret_cast<uint32_t*>(value));
 

@@ -1,7 +1,8 @@
 //This file is a simple program that will be use for testing the library.
-//Please Compile me! : cl.exe deadbeef.cpp /link /DYNAMICBASE:NO
+//Compile me! : cd tests/data; cl.exe deadbeef.cpp /link /DYNAMICBASE:NO
 // NB: I do not master the Windows behavior about fixed base address.
-// With Cheat engine, i found out that the base address I based y tests upon was 0x14F000
+// With Cheat engine, i found out that the base address I based my tests upon was 0x14F000
+// this value is used as is in some tests of the library.
 #include <iostream>
 #include <Windows.h>
 #include <synchapi.h>
