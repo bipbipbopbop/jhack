@@ -1,11 +1,12 @@
 #include <windows.h>
+#include <Psapi.h>
 #include <tlhelp32.h>
 
 #include "utils/tchar/tstring.hpp"
 
 namespace jhack
 {
-	HANDLE	getProcessHandleByName(DWORD dwDesiredAccess, Tstring<> name)
+	HANDLE		getProcessHandleByName(DWORD dwDesiredAccess, Tstring<> name)
 	{
 		PROCESSENTRY32	pInfo;
 		HANDLE			pHandle;
@@ -31,5 +32,14 @@ namespace jhack
 		}
 		CloseHandle(hSnap);
 		return pHandle;
+	}
+
+	Tstring<>	getProcessPath(HANDLE process)
+	{
+		Tstring<>	ret;
+
+		ret.reserve(512);
+		GetModuleFileNameEx(process, NULL, ret.data(), 512);
+		return ret;
 	}
 }

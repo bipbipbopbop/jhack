@@ -18,7 +18,16 @@ namespace jhack
 	 * 
 	 * To retrieve a Process Handle by PID, use OpenProcess(), from <Windows.h>.
 	 */
-	HANDLE	getProcessHandleByName(DWORD dwDesiredAccess, Tstring<> name);
+	HANDLE		getProcessHandleByName(DWORD dwDesiredAccess, Tstring<> name);
+
+	/*
+	 * getProcessPath:
+	 * retrieve the path of the executable behind the 'process' handle.
+	 *
+	 * Return value:
+	 * a Tstring. If the string is empty, then an error occured.
+	 */
+	Tstring<>	getProcessPath(HANDLE process);
 }
 
 #endif//PROCESS_PROCESS_HPP
