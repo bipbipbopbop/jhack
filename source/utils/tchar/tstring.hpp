@@ -6,15 +6,20 @@
 #include <string>
 #include <string_view>
 
+// disable warning C4996, for the use of wcstombs() func.
+#pragma warning(disable:4996)
+
 namespace jhack
 {
 	/*
-	* Tstring: A simple wrapper for std::basic_string<TCHAR>
-	* 
-	* The purpose of this class is only to provide automatic conversion of the initial string,
-	* according to the current TCHAR type. It means that you can construct a Tstring
-	* from either a std::string or a std::wstring (or the corresponding litteral string).
-	*/
+	 * Tstring: A simple wrapper for std::basic_string<TCHAR>
+	 * 
+	 * The purpose of this class is only to provide automatic conversion of the initial string,
+	 * according to the current TCHAR type. It means that you can construct a Tstring
+	 * from either a std::string or a std::wstring (or the corresponding litteral string).
+	 *
+	 * You can create a std::string instance from any Tstring instance with the .string() method.
+	 */
 	template <typename CharT = TCHAR, class = std::enable_if_t<std::is_same_v<CharT, TCHAR>>>
 	class Tstring : public std::basic_string<CharT>
 	{
@@ -52,6 +57,24 @@ namespace jhack
 			: Tstring(std::string(data))
 		{}
 
+		/*
+		 * string():
+		 * Create a std::string instance by copying the content of the current Tstring.
+		 */
+		std::string	string() const
+		{
+			std::string	res;
+
+			if constexpr (std::is_same<CharT, wchar_t>::value)
+			{
+				res.resize(this->size());
+				wcstombs(res.data(), this->c_str(), this->size());
+			}
+			else if constexpr (std::is_same<CharT, char>::value)
+				res = *dynamic_cast<const std::basic_string<char>*>(this);
+			
+			return res;
+		}
 
 		friend std::basic_ostream<CharT>	&operator<<(std::basic_ostream<CharT> &os, const Tstring &str)
 		{
