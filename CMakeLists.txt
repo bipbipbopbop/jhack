@@ -24,11 +24,13 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 set(SRC
     jhack.cpp
     process/process.cpp
+    window/window.cpp
 )
 set(INC
     jhack.hpp
     process/process.hpp
     process/pptr.hpp
+    window/window.hpp
     utils/tchar.hpp
     utils/tchar/tstring.hpp
     utils/tchar/io.hpp

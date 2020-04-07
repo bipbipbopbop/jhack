@@ -3,6 +3,7 @@
 
 #include <windows.h>
 #include "process/process.hpp"
+#include "window/window.hpp"
 
 namespace jhack
 {
