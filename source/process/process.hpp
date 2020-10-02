@@ -3,7 +3,6 @@
 
 #include <Windows.h>
 #include "pptr.hpp"
-#include "MemoryScanner.hpp"
 #include "utils/tchar.hpp"
 
 namespace jhack
