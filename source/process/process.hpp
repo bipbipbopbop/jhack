@@ -30,6 +30,15 @@ namespace jhack
 	 * a Tstring. If the string is empty, then an error occured.
 	 */
 	Tstring<>	getProcessPath(HANDLE process);
+
+	/*
+	 * testHandle:
+	 * Check if the 'process' handle is bind to a valid process.
+	 *
+	 * Return value:
+	 * true if the handle is bind to a valid process.
+	 */
+	bool		testProcessHandle(HANDLE process);
 }
 
 #endif//PROCESS_PROCESS_HPP

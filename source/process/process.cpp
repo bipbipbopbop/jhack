@@ -37,9 +37,20 @@ namespace jhack
 	Tstring<>	getProcessPath(HANDLE process)
 	{
 		Tstring<>	ret;
+		DWORD		size = 512;
 
-		ret.reserve(512);
-		GetModuleFileNameEx(process, NULL, ret.data(), 512);
+		ret.resize(size);
+		QueryFullProcessImageName(process, 0, ret.data(), &size);
+		ret.resize(size);
 		return ret;
+	}
+
+	bool		testProcessHandle(HANDLE process)
+	{
+		DWORD	exitCodeProcess;
+
+		if (!GetExitCodeProcess(process, &exitCodeProcess))
+			return false;
+		return exitCodeProcess == STILL_ACTIVE;
 	}
 }
