@@ -17,7 +17,7 @@ namespace jhack
 	 * Search for a window whose name contain 'hint'. Return the first occurence found.
 	 * Return NULL if no such window as been found.
 	 */
-	HWND		findWindowhandleByName(const char *name);
+	HWND		findWindowhandleByName(const char *hint);
 }
 
 #endif//WINDOW_PROCESS_HPP
