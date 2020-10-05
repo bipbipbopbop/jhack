@@ -110,12 +110,16 @@ namespace jhack
 		{
 			src.scanNext();
 			dynamic_cast<MemoryScanner::BaseIterator*>(this)->operator++();
+			return *this;
 		}
 
 		_iterator<>		operator++(int)
 		{
+			_iterator	result = *this;
+
 			src.scanNext();
 			dynamic_cast<MemoryScanner::BaseIterator*>(this)->operator++(int());
+			return result;
 		}
 
 		MemoryScanner	&src;

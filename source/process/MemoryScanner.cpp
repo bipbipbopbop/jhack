@@ -18,7 +18,7 @@ namespace jhack
 		LPVOID		findPattern(HANDLE processHandle, const BYTE *_pattern, const char *mask, const size_t begin) {
 			constexpr size_t						readSize = 4096;
 			size_t									maskSize{};
-			std::vector<std::pair<BYTE, bool>>	pattern;
+			std::vector<std::pair<BYTE, bool>>		pattern;
 
 			for (maskSize = 0; mask[maskSize]; ++maskSize)
 				pattern.push_back(std::make_pair(_pattern[maskSize], mask[maskSize] != '?'));

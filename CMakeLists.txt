@@ -23,11 +23,13 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 # source files
 set(SRC
     jhack.cpp
+    process/MemoryScanner.cpp
     process/process.cpp
     window/window.cpp
 )
 set(INC
     jhack.hpp
+    process/MemoryScanner.hpp
     process/process.hpp
     process/pptr.hpp
     window/window.hpp
