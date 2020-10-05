@@ -26,6 +26,7 @@ set(SRC
     process/MemoryScanner.cpp
     process/process.cpp
     window/window.cpp
+    utils/getLastError.cpp
 )
 set(INC
     jhack.hpp
@@ -36,6 +37,7 @@ set(INC
     utils/tchar.hpp
     utils/tchar/tstring.hpp
     utils/tchar/io.hpp
+    utils/getLastError.hpp
 )
 
 list(TRANSFORM SRC PREPEND ${SRC_DIR})
